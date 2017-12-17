@@ -1,0 +1,29 @@
+{
+  "name": "litemail",
+  "version": "0.0.1",
+  "description": "Really, really light email client built with Electron.",
+  "main": "litemail.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rykdesjardins/litemail.git"
+  },
+  "keywords": [
+    "Email",
+    "client",
+    "electron",
+    "light",
+    "mail"
+  ],
+  "author": "Erik Desjardins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rykdesjardins/litemail/issues"
+  },
+  "homepage": "https://github.com/rykdesjardins/litemail#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
