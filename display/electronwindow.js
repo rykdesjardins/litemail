@@ -5,6 +5,7 @@ const {app, BrowserWindow} = require('electron');
 module.exports = class ElectronWindow {
     constructor() {
         app.on('ready', this.cast.bind(this));
+        app.on('activate', this.activate.bind(this));
     }
 
     cast() {
