@@ -1,0 +1,8 @@
+{
+    "host" : "localhost",
+    "port" : 21877,
+    "window" : {
+        "width" : 800,
+        "height" : 600
+    }
+}
