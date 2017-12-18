@@ -15,6 +15,6 @@ module.exports = class LocalProxyServer {
     }
 
     incoming(req, resp) {
-        const prequest = new ProxyRequest(WEBROOT, req, resp);
+        const request = new ProxyRequest(WEBROOT, req, resp);
     }
 }
