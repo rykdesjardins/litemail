@@ -1,5 +1,9 @@
 const HTTP = require('http');
+const path = require('path');
+
 const CONFIG = require('../config');
+const WEBROOT = path.join(global.workdir, 'webapp/build');
+const ProxyRequest = require('./proxyrequest');
 
 module.exports = class LocalProxyServer {
     constructor() {
@@ -11,6 +15,6 @@ module.exports = class LocalProxyServer {
     }
 
     incoming(req, resp) {
-        resp.end("Hello, World!");
+        const prequest = new ProxyRequest(WEBROOT, req, resp);
     }
 }
