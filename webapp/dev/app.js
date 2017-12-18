@@ -1,1 +1,1 @@
-const React = require('react');
+const Preact = require('preact');

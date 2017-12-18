@@ -11,11 +11,18 @@ module.exports = {
         filename: 'app.js'
     },
     module : {
-        loaders : [
+        rules : [
             {
-                test : /\.jsx?/,
-                include : APP_DIR,
-                loader : 'babel-loader'
+                test: /\.jsx?/,
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        'es2015'
+                    ],
+                    plugins: [
+                        ['transform-react-jsx', { pragma: 'h' }]
+                    ]
+                }
             }
         ]
     }
