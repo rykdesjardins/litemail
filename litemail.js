@@ -1,6 +1,5 @@
 // Entry point
-const LocalProxyServer = require('./localproxy/server.js');
-const ElectronWindow = require('./display/electronwindow.js');
+global.workdir = __dirname;
 
-const localServer = new LocalProxyServer().start();
-const electronWindow = new ElectronWindow();
+const localServer = new (require('./localproxy/server'))().start();
+const electronWindow = new (require('./display/electronwindow'))();

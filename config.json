@@ -1,8 +1,15 @@
 {
     "host" : "localhost",
     "port" : 21877,
+
     "window" : {
         "width" : 800,
-        "height" : 600
+        "height" : 600,
+        "title" : "Litemail",
+        "frame" : false,
+        "titleBarStyle": "hiddenInset",
+        "backgroundColor" : "#333",
+        "minHeight": 480,
+        "minWidth": 640
     }
 }
