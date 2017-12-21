@@ -25,6 +25,8 @@ const getContentType = ext => {
     }
 };
 
+const SUPPORTED_EXT = ["js", "css", "png", "jpg", "jpeg", "json", "html"];
+
 module.exports = class ProxyRequest {
     constructor(webroot, req, resp) {
         this.req = req;
@@ -32,7 +34,11 @@ module.exports = class ProxyRequest {
         this.url = url.parse(this.req.url);
 
         this.abspath = path.join(webroot, this.url.pathname);
-        this.ext = this.abspath.substring(0, this.abspath.lastIndexOf('.'));
+        this.ext = this.abspath.substring(this.abspath.lastIndexOf('.') + 1);
+    }
+
+    isStatic() {
+        return SUPPORTED_EXT.includes(this.ext);
     }
 
     sendJSON(json) {

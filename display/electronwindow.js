@@ -11,12 +11,13 @@ module.exports = class ElectronWindow {
     cast() {
         this.window = new BrowserWindow(CONFIG.window);
         this.window.loadURL(url.format({
-            pathname: `${CONFIG.host}:${CONFIG.port}`,
+            pathname: `${CONFIG.host}:${CONFIG.port}/index.html`,
             protocol: 'http:',
             slashes: true
         }))
 
         this.window.on('closed', this.closed.bind(this));
+        this.window.webContents.openDevTools()
     }
 
     activate() {
