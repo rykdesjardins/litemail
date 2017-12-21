@@ -14,7 +14,7 @@ const getDataType = ext => {
 const getContentType = ext => {
     switch (ext) {
         case "js"   : return "text/javascript";
-        case "css"  : return "text/stylesheet";
+        case "css"  : return "text/css";
         case "html" : return "text/html";
         case "json" : return "application/json";
         case "jpg"  :
