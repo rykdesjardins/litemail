@@ -1,8 +1,8 @@
-import { h, render, Component } from 'preact';
+import { h, render } from 'preact';
+import HeaderWrapper from './wrappers/header';
 
 render((
     <div id="app">
-        <span>Hello, world!</span>
-        <button onClick={ e => alert("hi!") }>Click Me</button>
+        <HeaderWrapper />
     </div>
 ), document.body);
