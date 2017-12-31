@@ -53,13 +53,13 @@ module.exports = class ProxyRequest {
 
     sendStatic() {
         log('ProxyRequest', `Sending static file with path : ${this.abspath} [${getDataType(this.ext)}]`);
-        fs.access(this.abspath, (err) => {
+        fs.access(this.abspath, err => {
             if (err) {
-                this.resp.writeHead(400);
+                this.resp.writeHead(404);
                 this.resp.end();
             } else {
                 this.resp.writeHead(200, { "content-type" : getContentType(this.ext) });
-                fs.createReadStream(this.abspath, { encoding : getDataType(this.ext) }).pipe(this.resp);
+                fs.createReadStream(this.abspath/*, { encoding : getDataType(this.ext) }*/).pipe(this.resp);
             }
         });
     }
