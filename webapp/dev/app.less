@@ -1,5 +1,8 @@
 // Palette : dcdcdd c5c3c6 46494c 4c5c68 1985a1 
 // https://coolors.co/dcdcdd-c5c3c6-46494c-4c5c68-1985a1
+
+textarea, input, button { outline: none; }
+
 body {
     padding: 0;
     margin: 0;
@@ -24,4 +27,43 @@ header {
     padding-top: 8px;
     display: block;
     font-weight: bold;
+}
+
+#big-envelop {
+    display: block;
+    margin: 100px auto;
+    width: 260px;
+}
+
+#initloginform {
+    margin: 0 auto;
+    display: block;
+    width: 300px;
+
+    input {
+        width: 100%;
+        margin: 0px 0px 10px;
+        font-size: 20px;
+        padding: 7px 10px;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #5f8aac;
+        color: #FFF;
+
+        &:focus {
+            border-color : #1985a1;
+        }
+
+        &::placeholder {
+            font-size: 14px;
+            color : #AAA;
+
+            transition : all 0.2s;
+        }
+
+        &:focus::placeholder {
+            transform : translate3d(-20px, 0, 0);
+            opacity : 0;
+        }
+    }
 }
