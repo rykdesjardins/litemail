@@ -25,7 +25,10 @@
     "url": "https://github.com/rykdesjardins/litemail/issues"
   },
   "homepage": "https://github.com/rykdesjardins/litemail#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-pro-regular": "^5.0.2",
+    "@fortawesome/react-fontawesome": "0.0.17"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
