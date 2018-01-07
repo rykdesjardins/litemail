@@ -51,6 +51,15 @@ header {
         border-bottom: 2px solid #5f8aac;
         color: #FFF;
 
+        transition : all 0.2s;
+        transform : translate3d(0px, 20px, 0px);
+        opacity : 0;
+
+        &.visible {
+            transform : translate3d(0,0,0);
+            opacity : 1;
+        }
+
         &:focus {
             border-color: #1985a1;
         }
@@ -66,5 +75,21 @@ header {
             transform: translate3d(-10px, 0, 0);
             opacity: 0;
         }
+    }
+}
+
+.spinner-wrapper {
+    text-align: center;
+    color: #5f8aac;
+    font-size: 72px;
+
+    
+    transition : all 0.2s;
+    transform : scale(0.6);
+    opacity : 0;
+
+    &.visible {
+        transform: scale(1);
+        opacity : 1;
     }
 }
