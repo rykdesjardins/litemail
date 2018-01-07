@@ -20,12 +20,17 @@ const getContentType = ext => {
         case "jpg"  :
         case "jpeg" : return "image/jpeg";
         case "png"  : return "image/png";
+        case "svg"  : return "image/svg+xml";
+        case "woff2": return "font/woff";
+        case "woff" : return "font/woff2";
+        case "eot"  : return "application/vnd.ms-fontobject";
+        case "ttf"  : return "font/ttf";
         
         default     : return "application/litemail"
     }
 };
 
-const SUPPORTED_EXT = ["js", "css", "png", "jpg", "jpeg", "json", "html"];
+const SUPPORTED_EXT = ["js", "css", "png", "jpg", "jpeg", "json", "html", "svg", "woff", "woff2", "eot", "ttf"];
 
 module.exports = class ProxyRequest {
     constructor(webroot, req, resp) {
@@ -35,6 +40,25 @@ module.exports = class ProxyRequest {
 
         this.abspath = path.join(webroot, this.url.pathname);
         this.ext = this.abspath.substring(this.abspath.lastIndexOf('.') + 1);
+        this.path = this.url.path.substring(1).split('/');
+        this.endpoint = this.path[0];
+    }
+
+    readPostData(done) {
+        this.rawpostdata = "";
+        this.req.on('data', dat => {
+            this.rawpostdata += dat;
+        });
+
+        this.req.on('end', () => { 
+            try {
+                this.postdata = JSON.parse(this.rawpostdata);
+            } catch(ex) {
+            
+            }
+
+            done && done(this.postdata || this.rawpostdata); 
+        });
     }
 
     isStatic() {
