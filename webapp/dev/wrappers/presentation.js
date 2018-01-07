@@ -1,10 +1,19 @@
 import { h, Component } from 'preact';
 
 import LoadingScreen from './loadingscreen';
+import Liteboxes from './liteboxes';
+
+const WRAPPERS = {
+    login : <LoadingScreen />,
+    liteboxes : <Liteboxes />
+};
 
 export default class PresentationWrapper extends Component {
     constructor() {
         super();
+        this.state = {
+            wrapper : WRAPPERS.login
+        };
     }
 
     componentWillMount() {
@@ -12,13 +21,13 @@ export default class PresentationWrapper extends Component {
     }
 
     present(event) {
-        
+        this.setState(Object.assign(this.state, { wrapper : WRAPPERS[ev.detail.wrapper] }));
     }
 
     render() {
         return (
             <div id="presentation-wrapper">
-                <LoadingScreen />
+                {this.state.wrapper}
             </div>
         );
     }

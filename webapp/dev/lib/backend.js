@@ -6,7 +6,7 @@ export function Authenticate(mail, pass) {
             method : "POST",
             body : JSON.stringify({ mail, pass })
         }).then(r => {
-            r.status == 201 ? resolve(r.json()) : reject(r.json());
+            r.ok ? resolve(r.json()) : reject(r.json());
         });
     });
 }

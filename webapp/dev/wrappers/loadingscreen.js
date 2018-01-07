@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import Spinner from '../reusable/spinner';
 import { Authenticate } from '../lib/backend';
+import { Present } from '../lib/present';
 
 const VALID_STATE = {
     PENDING : 0,
@@ -24,9 +25,12 @@ export default class LoadingScreen extends Component {
 
     sendInitAuthCombo() {
         Authenticate(this.values.initemail, this.values.initpass).then(() => {
-            this.setState(Object.assign(this.state, { validState : VALID_STATE.LOGGEDIN, spinner : false }));
+            Present("liteboxes");
         }, () => {
-            this.setState(Object.assign(this.state, { validState : VALID_STATE.INVALID, spinner : false }));
+            this.setState(Object.assign(this.state, { validState : VALID_STATE.INVALID, spinner : false, activeForm : true }));
+            setTimeout(() => {
+                this.setState(Object.assign(this.state, { validState : VALID_STATE.PENDING }));
+            }, 5000);
         });
     }
 
