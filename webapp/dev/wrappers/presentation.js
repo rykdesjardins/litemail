@@ -21,7 +21,7 @@ export default class PresentationWrapper extends Component {
     }
 
     present(event) {
-        this.setState(Object.assign(this.state, { wrapper : WRAPPERS[ev.detail.wrapper] }));
+        this.setState(Object.assign(this.state, { wrapper : WRAPPERS[event.detail.wrapper] }));
     }
 
     render() {
